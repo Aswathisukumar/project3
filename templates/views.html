@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for i in p %}
+<ul>
+    <li>firstname:{{i.firstname}}</li>
+    <li>lastname:{{i.lastname}}</li>
+    <li>department:{{i.department}}</li>
+    <li>age:{{i.age}}</li>
+    <li>place:{{i.place}}</li>
+    <li>phone:{{i.phone}}</li>
+    <li>email:{{i.email}}</li>
+    <li><img src="{{i.photo}}" alt="photo" height="50px" width="50px"></li>
+    <li>username:{{i.username}}</li>
+    <li>password:{{i.password}}</li>
+    <li><a href="/teacherr_edit/{{i.id}}">edit</a></li>
+    <li><a href="/teacherr_delete/{{i.id}}">delete</a></li>
+</ul>
+{% endfor %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr>
+        <th>firstname</th>
+            <td>
+                <input type="text" name="firstname" value="{{r.firstname}}">
+            </td>
+        </tr>
+        <tr>
+            <th>lastname</th>
+            <td>
+                <input type="text" name="lastname" value="{{r.lastname}}">
+            </td>
+        </tr>
+        <tr>
+            <th>department</th>
+            <td>
+                <input type="radio" name="department" value="commerce">commerce
+                <input type="radio" name="department" value="history">history
+                <input type="radio" name="department" value="science">science
+            </td>
+        </tr>
+        <tr>
+            <th>age</th>
+            <td>
+                <input type="number" name="age" value="{{r.age}}">
+            </td>
+        </tr>
+        <tr>
+            <th>place</th>
+            <td>
+                <input type="text" name="place" value="{{r.place}}">
+            </td>
+        </tr>
+        <tr>
+            <th>phone</th>
+            <td>
+                <input type="number" name="phone" value="{{r.phone}}">
+            </td>
+        </tr>
+        <tr>
+            <th>email</th>
+            <td>
+                <input type="email" name="email" value="{{r.email}}">
+            </td>
+        </tr>
+        <tr>
+            <th>photo</th>
+            <td>
+                <img src="{{p.photo}}" alt="photo" height="50px" width="50px"></td>
+               <td>
+            <input type="file" name="photo" value="{{r.photo}}">
+            </td>
+        </tr>
+        <tr>
+            <th>username</th>
+            <td>
+                <input type="text" name="username" value="{{r.username}}">
+            </td>
+        </tr>
+        <tr>
+            <th>password</th>
+            <td>
+                <input type="text" name="password" value="{{r.password}}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="submit" value="submit">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

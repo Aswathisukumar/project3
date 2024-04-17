@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr>
+        <th>firstname</th>
+            <td>
+                <input type="text" name="firstname" value="{{p.firstname}}">
+            </td>
+        </tr>
+        <tr>
+            <th>lastname</th>
+            <td>
+                <input type="text" name="lastname" value="{{p.lastname}}">
+            </td>
+        </tr>
+        <tr>
+            <th>department</th>
+            <td>
+                <input type="radio" name="department" value="commerce">commerce
+                <input type="radio" name="department" value="history">history
+                <input type="radio" name="department" value="science">science
+            </td>
+        </tr>
+        <tr>
+            <th>age</th>
+            <td>
+                <input type="number" name="age" value="{{p.age}}">
+            </td>
+        </tr>
+        <tr>
+            <th>place</th>
+            <td>
+                <input type="text" name="place" value="{{p.place}}">
+            </td>
+        </tr>
+        <tr>
+            <th>phone</th>
+            <td>
+                <input type="number" name="phone" value="{{p.phone}}">
+            </td>
+        </tr>
+        <tr>
+            <th>email</th>
+            <td>
+                <input type="email" name="email" value="{{p.email}}">
+            </td>
+        </tr>
+        <tr>
+            <th>photo</th>
+            <td>
+                <img src="{{p.photo}}" alt="photo" height="50px" width="50px"></td>
+               <td>
+            <input type="file" name="photo" value="{{p.photo}}">
+            </td>
+        </tr>
+        <tr>
+            <th>username</th>
+            <td>
+                <input type="text" name="username" value="{{p.username}}">
+            </td>
+        </tr>
+        <tr>
+            <th>password</th>
+            <td>
+                <input type="text" name="password" value="{{p.password}}">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="submit" value="submit">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

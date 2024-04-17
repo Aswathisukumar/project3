@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>firstname</th>
+            <td>
+                <input type="text" name="firstname">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="submit">
+            </td>
+        </tr>
+    </table>
+</form>
+{% if s %}
+{% for i in s %}
+<ul>
+    <li>firstname:{{i.firstname}}</li>
+    <li>lastname:{{i.lastname}}</li>
+    <li>age:{{i.age}}</li>
+    <li>email:{{i.email}}</li>
+    <li>place:{{i.place}}</li>
+    <li>phone:{{i.phone}}</li>
+    <li><img src="{{i.photo.url}}" alt="img" height="50px" width="50px"></li>
+    <li>username:{{i.username}}</li>
+    <li>password{{i.password}}</li>
+    <li><a href="/person_edit/{{i.id}}">Edit</a></li>
+    <li><a href="/person_delete/{{i.id}}">Remove</a></li>
+</ul>
+{% endfor %}
+{% endif %}
+</body>
+</html>
